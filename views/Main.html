@@ -1,94 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+	
   <head>
     <title>
       Salesforce Lightnig Out Demo 
+	   
     </title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon"  type="image/icon"  href="Cloud Red.ico" />
   </head>
   <body>
-
-    <nav role="navigation" class="navbar navbar-default">
-      <div class="container-fluid">
-
-        <div class="navbar-header">
-          <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="navbar-toggle">
-            <span class="sr-only">
-              Toggle navigation
-            </span>
-            <span class="icon-bar">
-            </span>
-            <span class="icon-bar">
-            </span>
-            <span class="icon-bar">
-            </span>
-          </button>
-          <a href="http://JitendraZaa.com/blog" class="navbar-brand">
-           <span class="glyphicon glyphicon-cloud" style="vertical-align : middle" ></span> Salesforce Lightning Out Demo
-          </a>
-        </div> 
-       
-      </div>
-    </nav> 
 
 	<div id="lexcontainer"> 
 	</div>
   
          
   </body>
-  <script src="https://componentdemo-dev-ed.lightning.force.com/lightning/lightning.out.js"></script>
+  <script src="https://waseemcom-dev-ed.lightning.force.com/lightning/lightning.out.js"></script>
   <script type="text/javascript" src="lib/jquery.js">  </script>
   <script type="text/javascript" src="lib/jqueryCookies.js"> </script>   
 
 <script> 
-var _lightningReady = false;
-if(!$.cookie("AccToken"))
-{ 
-    alert("Login to Salesforce First!!!");
-}else{
-	createChatterFeed('NEWS');
-}
 
-
-
-function setupLightning(callback) {
-	var appName = "c:LightningOutTestApp";
-	 
-
-	if (_lightningReady) {
-		if (typeof callback === "function") {
-			callback();
-		}
-	} else {
-	    // Transform the URL for Lightning
-	    var url = $.cookie("InstURL");
-		url = url.replace("my.salesforce", "lightning.force");
-
-	    $Lightning.use(appName, 
-	        function() {
-				_lightningReady = true;
-				document.getElementById("lexcontainer").style.display = "";
-				if (typeof callback === "function") {
-					callback();
-				}
-	        }, url, $.cookie("AccToken"));
-	}
-}
-
-function createChatterFeed(type, subjectId) {
-    setupLightning(function() {
+ // Transform the URL for Lightning
+ setupLightning(function() {
 		$Lightning.createComponent("c:LightningOutTestComp", 
 									{ 
 									
 									},                  // attributes to set on the component when created
-									"lightningLocator",   // the DOM location to insert the component
-										function(cmp) {
+									"lexcontainer",   // the DOM location to insert the component
+										function(component) {
+										console.log('createdComponent');
                     // callback when component is created and active on the page
 									}
             );
     });
+		
+function setupLightning(callback) {
+	    // Transform the URL for Lightning
+		var Token = $.cookie("AccToken");
+	    var url = $.cookie("InstURL");
+		url = url.replace("my.salesforce", "lightning.force");
+
+	    $Lightning.use("c:LightningOutTestApp", 
+	        function() {				
+				
+					callback();
+				
+	        }, url, Token);
+	
 }
+
+    
+
+			
 
 </script>
 

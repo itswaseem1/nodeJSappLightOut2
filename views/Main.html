@@ -53,7 +53,7 @@ if(!$.cookie("AccToken"))
 
 
 function setupLightning(callback) {
-	var appName = "c:LightningOutDemo";
+	var appName = "c:LightningOutTestApp";
 	 
 
 	if (_lightningReady) {
@@ -78,7 +78,15 @@ function setupLightning(callback) {
 
 function createChatterFeed(type, subjectId) {
     setupLightning(function() {
-		$Lightning.createComponent("forceChatter:feed", {type: type, subjectId: subjectId}, "lexcontainer"); 
+		$Lightning.createComponent("c:LightningOutTestComp", 
+									{ 
+									
+									},                  // attributes to set on the component when created
+									"lightningLocator",   // the DOM location to insert the component
+										function(cmp) {
+                    // callback when component is created and active on the page
+									}
+            );
     });
 }
 

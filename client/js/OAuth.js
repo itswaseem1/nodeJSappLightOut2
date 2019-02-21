@@ -3,7 +3,7 @@ $("#prodBtn").click(prodLogin);
 $("#sandBtn").click(sandLogin);
 
 var apiVersion = 'v37.0',
-    clientId = 'YOUR CONSUMER KEY',
+    clientId = '3MVG9d8..z.hDcPLaixKLb9ADg2ZJnksVGjG.oWg5BSAOygfztWdkGLhYmu4PVUAbUPUWyGfQ3XxU6uaFqEki',
     loginUrl = 'https://login.salesforce.com/',
     redirectURI = "http://localhost:8080/oauthcallback.html",
     proxyURL = 'http://localhost:8080/proxy/' ;
@@ -51,5 +51,6 @@ function popupCenter(url, title, w, h) {
     var parentTop = window.screenTop ? window.screenTop : window.screenY;
     var left = parentLeft + (window.innerWidth / 2) - (w / 2);
     var top = parentTop + (window.innerHeight / 2) - (h / 2);
+	console.log('reschedhere');
     return window.open(url, title, 'width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
 }

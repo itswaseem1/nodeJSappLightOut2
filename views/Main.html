@@ -14,7 +14,7 @@
   
          
   </body>
-  <script src="https://waseemcom-dev-ed.lightning.force.com/lightning/lightning.out.js"></script>
+  <script src="https://waseemorg4-dev-ed.lightning.force.com/lightning/lightning.out.js"></script>
   <script type="text/javascript" src="lib/jquery.js">  </script>
   <script type="text/javascript" src="lib/jqueryCookies.js"> </script>   
 
@@ -22,7 +22,7 @@
 
  // Transform the URL for Lightning
  setupLightning(function() {
-		$Lightning.createComponent("c:LightningOutTestComp", 
+		$Lightning.createComponent("c:myApxLC", 
 									{ 
 									
 									},                  // attributes to set on the component when created
@@ -40,7 +40,7 @@ function setupLightning(callback) {
 	    var url = $.cookie("InstURL");
 		url = url.replace("my.salesforce", "lightning.force");
 
-	    $Lightning.use("c:LightningOutTestApp", 
+	    $Lightning.use("c:myApxLOA", 
 	        function() {				
 				
 					callback();

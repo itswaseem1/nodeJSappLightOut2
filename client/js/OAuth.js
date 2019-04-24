@@ -3,7 +3,7 @@ $("#prodBtn").click(prodLogin);
 $("#sandBtn").click(sandLogin);
 
 var apiVersion = 'v37.0',
-    clientId = '3MVG9d8..z.hDcPLaixKLb9ADg2ZJnksVGjG.oWg5BSAOygfztWdkGLhYmu4PVUAbUPUWyGfQ3XxU6uaFqEki',
+    clientId = '3MVG9pe2TCoA1Pf6LXw95ze8yhWkcYzldd7nTv2i1s5hkFme6jopygIxemq.x8pUBNscsaDzXFlnh7GYev9p_',
     loginUrl = 'https://login.salesforce.com/',
     redirectURI = "http://localhost:8080/oauthcallback.html",
     proxyURL = 'http://localhost:8080/proxy/' ;
